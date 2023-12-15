@@ -3,7 +3,7 @@ node {
     checkout scm
     // Define Docker agent
     docker.withServer('tcp://docker:2376'){
-    docker.image('node:16-buster-slim') {
+    docker.image('node:16-buster-slim').inside {
                 sh 'npm install'
             }
         }
