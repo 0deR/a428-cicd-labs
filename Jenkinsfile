@@ -9,7 +9,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'npm config set timeout 6000000'
-                sh 'npm install '
+                sh 'npm install'
             }
         }
         stage('Test') { 
