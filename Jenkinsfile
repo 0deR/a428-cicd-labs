@@ -1,21 +1,19 @@
-pipeline {
-    agent {
-        docker {
-            image 'node:16-buster-slim'
-            args '-p 3000:3000'
-        }
-    }
-    stages {
+node {
+    docker.image('node:16-buster-slim').withRun('-p 3000:3000') {
+        
+        // Stage: Build
         stage('Build') {
-            steps {
-                sh 'npm config set timeout 6000000'
-                sh 'npm install'
-            }
+            // Set npm timeout
+            sh 'npm config set timeout 6000000'
+            
+            // Install dependencies
+            sh 'npm install'
         }
-        stage('Test') { 
-            steps {
-                sh './jenkins/scripts/test.sh' 
-            }
+
+        // Stage: Test
+        stage('Test') {
+            // Run test script
+            sh './jenkins/scripts/test.sh'
         }
     }
 }
