@@ -4,7 +4,10 @@ node {
     // Define Docker agent
     docker.withServer('tcp://docker:2376'){
     docker.image('node:16-buster-slim').inside {
-                sh 'npm install'
+                stage('Install Dependecies') {
+                          sh 'npm install'
+                }
+             
             }
         }
     }
