@@ -8,6 +8,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                sh 'npm config set timeout 6000000'
                 sh 'npm install'
             }
         }
