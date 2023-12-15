@@ -7,7 +7,10 @@ node {
                 stage('Install Dependecies') {
                           sh 'npm install'
                 }
-             
+            stage('Test Script') {
+                sh './jenkins/scripts/test.sh'
+            }
+                             
             }
         }
     }
