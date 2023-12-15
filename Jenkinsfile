@@ -2,7 +2,8 @@ node {
     // This block specifies that the entire pipeline will run on a single Jenkins agent (node).
     checkout scm
     // Define Docker agent
-    docker.image('node:lts-buster-slim').withRun('-p 3000:3000') {
+    docker.withServer('tcp://localhost:2376'){
+    docker.image('node:16-buster-slim').inside {
 
         // Environment variables
         env.CI = 'true'
@@ -34,4 +35,5 @@ node {
             }
         }
     }
+}
 }
