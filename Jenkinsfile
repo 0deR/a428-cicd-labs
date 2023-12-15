@@ -7,7 +7,7 @@ node {
                 stage('Build') {
                           sh 'npm install'
                 }
-            stage('Test Script') {
+            stage('Test') {
                 sh './jenkins/scripts/test.sh'
             }
                              
