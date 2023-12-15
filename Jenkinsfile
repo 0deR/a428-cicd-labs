@@ -4,7 +4,7 @@ node {
         // Stage: Build
         stage('Build') {  
             // Install dependencies
-            sh 'npm install'
+            sh '/bin/npm install'
         }
 
         // Stage: Test
